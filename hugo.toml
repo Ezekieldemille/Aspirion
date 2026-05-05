@@ -1,0 +1,4 @@
+baseURL = "https://aspirion.org/"
+languageCode = "en-us"
+title = "Aspirion"
+theme = "ananke"
