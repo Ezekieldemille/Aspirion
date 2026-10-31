@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="page-shell listing-page">
+  <div class="breadcrumbs"><a href="{{ "/" | relURL }}">Home</a> <span aria-hidden="true">/</span> {{ .Title }}</div>
+  <header class="article-heading"><h1>{{ .Title }}</h1></header>
+  {{ with .Content }}<div class="prose section-intro">{{ . }}</div>{{ end }}
+  <div class="section-list">
+    {{ range .Pages }}
+    <article class="list-entry"><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><a class="entry-arrow" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">&rarr;</a></article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

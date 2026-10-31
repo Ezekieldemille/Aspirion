@@ -1,0 +1,78 @@
+
+/* ASPIRION: PARCHMENT, WINE & WALNUT */
+
+:root {
+  --parchment: #F5E3C3;
+  --parchment-light: #FFF1D6;
+  --burgundy: #762327;
+  --walnut: #4B3021;
+  --ink: #2E1D17;
+  --border-tan: #D7BE98;
+}
+
+/* Page backgrounds */
+
+body,
+main,
+.bg-near-white {
+  background-color: var(--parchment) !important;
+  color: var(--ink);
+}
+
+.bg-white {
+  background-color: var(--parchment-light) !important;
+}
+
+/* Main typography */
+
+body {
+  font-family: Georgia, serif;
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+}
+
+main h1, main h2, main h3 {
+  color: var(--walnut);
+}
+
+/* Navigation and footer */
+
+header nav,
+footer {
+  background-color: var(--walnut) !important;
+}
+
+header nav a,
+footer,
+footer a {
+  color: var(--parchment-light) !important;
+}
+
+/* Links */
+
+main a {
+  color: var(--burgundy);
+}
+
+main a:hover {
+  color: var(--walnut);
+}
+
+/* Quotations */
+
+blockquote {
+  border-left: 4px solid var(--burgundy);
+  background-color: var(--parchment-light);
+  padding: 1rem 1.5rem;
+  color: var(--walnut);
+}
+
+/* Dividers */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-tan);
+}

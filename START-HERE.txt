@@ -1,0 +1,63 @@
+ASPIRION CUSTOM HUGO THEME
+=========================
+
+This package contains only one new directory:
+  themes/aspirion/
+
+It does not replace your content, configuration, current Ananke theme, or GitHub settings.
+
+INSTALLATION (Windows)
+----------------------
+1. Stop 'hugo server -D' with Ctrl+C.
+2. Extract this zip to your existing project folder:
+     C:\Users\Admin\aspirion-site
+   If Windows asks about merging folders, this is expected; the new folder is themes\aspirion.
+3. Back up hugo.toml:
+     Copy-Item .\hugo.toml .\hugo.toml.backup
+4. Open hugo.toml and change ONLY the top-level theme setting from:
+     theme = 'ananke'
+   to:
+     theme = 'aspirion'
+   If your theme setting uses double quotes, preserve that style.
+   Keep baseURL, menus, content, and other existing settings as-is.
+5. Run:
+     hugo server -D
+6. Open http://localhost:1313/ and press Ctrl+F5.
+
+IMPORTANT:
+- If your own project already contains layout files under 'layouts/', those take
+  precedence over the theme's templates. If the old layout remains, check that folder.
+- The installed theme does not require the newer Ananke minimum Hugo version.
+- This theme uses the current Hugo template organization (layouts/home.html etc.)
+  supported in Hugo 0.159.2.
+- Fonts load from Google Fonts when online; system font fallbacks work offline.
+
+OPTIONAL LIBRARY SETUP
+----------------------
+Once the theme looks right, create the Library sections (if not already there):
+  hugo new content library/_index.md
+  hugo new content library/articles/_index.md
+  hugo new content library/musings/_index.md
+
+Edit each _index.md to set draft: false, and add a title. Then create articles:
+  hugo new content library/articles/my-first-article.md
+Set 'draft: false' (or 'draft = false' for TOML), and save.
+The theme automatically lists Library writings on the homepage.
+
+CUSTOMIZING COLORS
+------------------
+Edit: themes/aspirion/static/css/aspirion.css
+At the top you'll find CSS variables for:
+  --parchment: #F5E3C3;
+  --burgundy: #762327;
+  --walnut: #4B3021;
+
+If this is a git project, commit your site and the new theme directory
+before deploying. You may keep the old Ananke folder installed but unused.
+
+ROLLBACK
+--------
+1. Stop the Hugo server.
+2. Restore hugo.toml from hugo.toml.backup, or change theme back to 'ananke'.
+3. Restart Hugo.
+Your original content is untouched.

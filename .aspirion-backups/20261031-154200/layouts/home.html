@@ -1,0 +1,78 @@
+{{ define "main" }}
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-inner">
+    <div class="hero-ornament" aria-hidden="true"><span></span>✦<span></span></div>
+    <p class="eyebrow">WELCOME TO ASPIRION</p>
+    <h1 id="hero-heading">A place to seek,<br>to question, to become.</h1>
+    <p class="hero-intro">A welcoming home for philosophy, reflection, and the practice of living well.</p>
+    <a class="button-primary" href="{{ "three-paths/" | relURL }}">Begin exploring <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+
+<section class="section-wrap foundational" aria-labelledby="foundations-heading">
+  <div class="section-heading">
+    <span class="eyebrow">A PLACE TO BEGIN</span>
+    <h2 id="foundations-heading">Explore the Foundations</h2>
+    <p>Every question is a doorway. Start wherever your curiosity leads.</p>
+  </div>
+  <div class="feature-grid">
+    <a class="feature-card" href="{{ "three-paths/" | relURL }}">
+      <span class="feature-number">01</span>
+      <h3>The Three Paths</h3>
+      <p>Explore the paths at the heart of Aspirion.</p>
+      <span class="card-link">Explore the Paths &rarr;</span>
+    </a>
+    <a class="feature-card" href="{{ "irreducibles/" | relURL }}">
+      <span class="feature-number">02</span>
+      <h3>The Irreducibles</h3>
+      <p>Consider Aspirion's foundational virtues.</p>
+      <span class="card-link">Read the Irreducibles &rarr;</span>
+    </a>
+    <a class="feature-card" href="{{ "formulary/" | relURL }}">
+      <span class="feature-number">03</span>
+      <h3>The Formulary</h3>
+      <p>Discover the practices that give ideas shape.</p>
+      <span class="card-link">Explore the Formulary &rarr;</span>
+    </a>
+    <a class="feature-card" href="{{ "faq/" | relURL }}">
+      <span class="feature-number">04</span>
+      <h3>Questions &amp; Answers</h3>
+      <p>Find your bearings and follow your questions.</p>
+      <span class="card-link">Browse Questions &rarr;</span>
+    </a>
+  </div>
+</section>
+
+{{ with .Content }}
+<section class="home-note section-wrap" aria-labelledby="home-note-heading">
+  <span class="eyebrow">A NOTE FROM THE HEARTH</span>
+  <div class="prose">{{ . }}</div>
+</section>
+{{ end }}
+
+<section class="library-band" aria-labelledby="library-heading">
+  <div class="section-wrap library-inner">
+    <div class="section-heading">
+      <span class="eyebrow">FROM THE LIBRARY</span>
+      <h2 id="library-heading">Writings &amp; Musings</h2>
+      <p>Ideas to return to, questions worth keeping, and thoughts still taking shape.</p>
+    </div>
+    {{ $writings := where site.RegularPages "Section" "library" }}
+    {{ if gt (len $writings) 0 }}
+      <div class="writing-grid">
+        {{ range first 3 ($writings.ByDate.Reverse) }}
+        <article class="writing-card">
+          <span class="eyebrow">{{ with .Params.kind }}{{ . }}{{ else }}{{ .Section }}{{ end }}</span>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify | truncate 155 }}</p>{{ end }}
+          <a class="text-link" href="{{ .RelPermalink }}">Read more &rarr;</a>
+        </article>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="library-placeholder">A place for new essays and reflections. The shelves are ready.</p>
+    {{ end }}
+    {{ with site.GetPage "/library" }}<a class="outline-link" href="{{ .RelPermalink }}">Visit the Library &rarr;</a>{{ end }}
+  </div>
+</section>
+{{ end }}

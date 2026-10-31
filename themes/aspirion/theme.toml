@@ -1,0 +1,5 @@
+name = 'Aspirion'
+license = 'MIT'
+licenselink = 'https://opensource.org/licenses/MIT'
+description = 'A warm, literary Hugo theme for the Aspirion philosophical library.'
+min_version = '0.146.0'

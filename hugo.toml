@@ -1,7 +1,7 @@
 baseURL = "https://aspirion.org/"
 locale = "en-us"
 title = "Aspirion"
-theme = "ananke"
+theme = 'aspirion'
 
 [markup]
   [markup.goldmark]

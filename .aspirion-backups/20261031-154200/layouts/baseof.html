@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#4B3021">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+  {{ with .Description }}<meta name="description" content="{{ . }}">{{ else }}<meta name="description" content="Aspirion: a welcoming home for philosophy, reflection, and the practice of living well.">{{ end }}
+  <link rel="stylesheet" href="{{ "css/aspirion.css" | relURL }}">
+  {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }} RSS" href="{{ .RelPermalink }}">{{ end }}
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="{{ "/" | relURL }}" aria-label="Aspirion home">
+        <span class="brand-seal" aria-hidden="true">A</span>
+        <span class="brand-text">ASPIRION<span class="brand-caption">A HOME FOR REFLECTION</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="{{ "/" | relURL }}">Home</a>
+        <a href="{{ "three-paths/" | relURL }}">The Paths</a>
+        <a href="{{ "irreducibles/" | relURL }}">The Irreducibles</a>
+        <a href="{{ "formulary/" | relURL }}">The Formulary</a>
+        {{ with site.GetPage "/library" }}<a href="{{ .RelPermalink }}">Library</a>{{ end }}
+        <a href="{{ "faq/" | relURL }}">Questions</a>
+        {{ with site.GetPage "/about" }}<a href="{{ .RelPermalink }}">About</a>{{ end }}
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <span class="footer-title">Aspirion</span>
+        <p>A place to seek, to question, to become.</p>
+      </div>
+      <div class="footer-meta">
+        <a href="{{ "/" | relURL }}">Return home</a>
+        <span>&copy; {{ now.Year }} Aspirion</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

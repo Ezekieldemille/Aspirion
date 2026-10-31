@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="reading-page page-shell">
+  <div class="breadcrumbs"><a href="{{ "/" | relURL }}">Home</a>{{ with .CurrentSection }}{{ if ne .RelPermalink ("/" | relURL) }} <span aria-hidden="true">/</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}{{ end }}</div>
+  <header class="article-heading">
+    {{ with .Params.kind }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+    {{ if not .Date.IsZero }}<p class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ if gt .ReadingTime 0 }}<span aria-hidden="true"> · </span>{{ .ReadingTime }} min read{{ end }}</p>{{ end }}
+  </header>
+  <div class="prose article-body">{{ .Content }}</div>
+  <div class="article-ending" aria-hidden="true">✦</div>
+  <a class="return-link" href="{{ "/" | relURL }}">&larr; Return home</a>
+</article>
+{{ end }}

@@ -1,0 +1,11 @@
+baseURL = "https://aspirion.org/"
+locale = "en-us"
+title = "Aspirion"
+theme = "ananke"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+[params.ananke]
+custom_css = ["aspirion.css"]
