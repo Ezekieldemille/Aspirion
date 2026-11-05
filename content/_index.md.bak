@@ -1,0 +1,120 @@
+
++++
+title = "Aspirion"
+draft = false
++++
+
+<div style="text-align:center; margin:3rem auto 2rem; max-width:800px;">
+
+<h1>What can you see in unhewn stone?</h1>
+
+<h2 style="font-weight:normal; font-style:italic;">What can you hear in the silence before song?</h2>
+
+<hr style="width:35%; margin:2rem auto;">
+
+<p>What do you worship? Have you chosen your own gods? Are you becoming who you want to be? Are you shaping the world around you to better reflect your values?</p>
+
+</div>
+
+---
+
+## Welcome to Aspirion.org!
+
+*We are so glad you are here!*
+
+This website is to share with you my philosophy. The thoughts shared here represent the synthesis of many areas of study I have engaged with across my life. I do not claim that it is universal, unquestionable, much less complete.
+
+But, as a young man, this website would have been a resource I needed. I hope it could have helped me avoid many things I now regret having done or believed.
+
+So, believing in the Gandhian ethic of being the change you wish to see, I have stuck out my neck to share with you my personal belief system, as well as publishing significant portions of my own progress in following through with these principles.
+
+Please! Read below. Take what you find valuable, leave what you don't, and Become.
+
+<div style="text-align:center; margin:3rem auto; padding:1.5rem;">
+
+<p style="font-size:1.2rem;">May you find Truth.<br>
+May you Struggle.<br>
+May you Become.</p>
+
+<p><em>And may this be a place to aid you in those pursuits.</em></p>
+
+<p style="margin-top:2rem;"><strong>As we breathe.</strong></p>
+
+</div>
+
+---
+
+## Featured Article
+
+<!-- Replace this section with the title, description, and URL of the article you wish to feature. -->
+
+<div style="padding:1.5rem; border:1px solid #ccc; border-radius:12px; margin:1.5rem 0;">
+
+<h3>Featured Article Coming Soon</h3>
+
+<p>A selected article from the Aspirion library will be featured here.</p>
+
+</div>
+
+---
+
+## Frequently Asked Questions
+
+### What is Aspirion?
+
+Aspirion is a nonsupernatural religion that promotes the use of religion as a social and spiritual technology to promote self-development, and by extension, community development.
+
+### Would Aspirion fit me well?
+
+Click on the link below to learn more about Aspirion's philosophy, and then judge for yourself whether or not it sounds like something you would like to incorporate into your life.
+
+[Learn more about Aspirion's philosophy](/three-paths/)
+
+### What do you call someone who follows Aspirion?
+
+An Aspirite! People who follow Aspirion or adhere to Aspiric principles are Aspirites.
+
+### What should I do if I want to learn more?
+
+Have a question, want to learn more, or simply wish to reach out? Send a message using the form below.
+
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="max-width:650px; margin:1.5rem auto; padding:1.5rem; border:1px solid #ccc; border-radius:12px;">
+
+<label for="contact-name">Your Name</label>
+<input type="text" id="contact-name" name="name" required style="display:block; width:100%; box-sizing:border-box; padding:0.75rem; margin:0.5rem 0 1rem; border:1px solid #aaa; border-radius:6px;">
+
+<label for="contact-email">Your Email Address</label>
+<input type="email" id="contact-email" name="email" required style="display:block; width:100%; box-sizing:border-box; padding:0.75rem; margin:0.5rem 0 1rem; border:1px solid #aaa; border-radius:6px;">
+
+<label for="contact-message">Your Message</label>
+<textarea id="contact-message" name="message" rows="6" required style="display:block; width:100%; box-sizing:border-box; padding:0.75rem; margin:0.5rem 0 1rem; border:1px solid #aaa; border-radius:6px;"></textarea>
+
+<input type="text" name="_gotcha" style="display:none;">
+
+<button type="submit" style="background:#702c3c; color:white; border:none; padding:0.85rem 1.5rem; border-radius:6px; cursor:pointer;">
+Send Message
+</button>
+
+<p><small>Messages are processed through a third-party form service.</small></p>
+
+</form>
+
+---
+
+<h2 style="text-align:center; margin-top:2rem;">Explore Aspirion</h2>
+
+<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1.5rem;">
+
+<a href="/poetry-and-prose/" style="display:block; padding:1.5rem; border:1px solid #ccc; border-radius:12px; text-decoration:none; text-align:center;">
+<strong>Poetry and Prose</strong>
+</a>
+
+<a href="/philosophy-and-formula/" style="display:block; padding:1.5rem; border:1px solid #ccc; border-radius:12px; text-decoration:none; text-align:center;">
+<strong>Philosophy and Formula</strong>
+</a>
+
+<a href="/reflections-and-progress-notes/" style="display:block; padding:1.5rem; border:1px solid #ccc; border-radius:12px; text-decoration:none; text-align:center;">
+<strong>Reflections and Progress Notes</strong>
+</a>
+
+</div>

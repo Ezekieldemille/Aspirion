@@ -1,0 +1,115 @@
+{{ define "main" }}
+<section class="hero aspirion-hero" aria-labelledby="hero-heading">
+  <div class="hero-inner">
+    <div class="hero-ornament" aria-hidden="true"><span></span>✦<span></span></div>
+    <p class="eyebrow">WELCOME TO ASPIRION</p>
+    <h1 id="hero-heading">{{ with .Params.hero_title }}{{ . }}{{ else }}A place to seek, to question, to become.{{ end }}</h1>
+    <p class="hero-intro">{{ with .Params.subtitle }}{{ . }}{{ else }}A welcoming home for philosophy, reflection, and the practice of living well.{{ end }}</p>
+  </div>
+</section>
+
+{{/* A single page may be marked featured: true in its front matter. */}}
+{{ $featured := false }}
+{{ $featuredCandidates := where site.RegularPages "Params.featured" true }}
+{{ range first 1 $featuredCandidates.ByLastmod.Reverse }}{{ $featured = . }}{{ end }}
+{{/* Until the editor marks a featured work, show the newest Library writing. */}}
+{{ if not $featured }}
+  {{ $libraryWritings := where site.RegularPages "Section" "library" }}
+  {{ range first 1 $libraryWritings.ByLastmod.Reverse }}{{ $featured = . }}{{ end }}
+{{ end }}
+
+<section class="section-wrap featured-section" aria-labelledby="featured-heading">
+  <div class="section-heading">
+    <p class="eyebrow">A WORK TO BEGIN WITH</p>
+    <h2 id="featured-heading">Featured Writing</h2>
+  </div>
+  {{ with $featured }}
+  <article class="featured-work">
+    <div class="featured-ornament" aria-hidden="true">✦</div>
+    <div class="featured-copy">
+      <p class="eyebrow">{{ with .Params.kind }}{{ . }}{{ else }}{{ with .CurrentSection }}{{ .Title }}{{ else }}FROM THE LIBRARY{{ end }}{{ end }}</p>
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify | truncate 190 }}</p>{{ end }}
+      <a class="text-link" href="{{ .RelPermalink }}">Read this work &rarr;</a>
+    </div>
+  </article>
+  {{ else }}
+  <div class="featured-work featured-empty">
+    <div class="featured-copy">
+      <p class="eyebrow">THE SHELVES ARE READY</p>
+      <h3>Explore the Library</h3>
+      <p>Essays, reflections, criticism, poetry, and prose will find a home here.</p>
+      <a class="text-link" href="{{ "library/" | relURL }}">Visit the Library &rarr;</a>
+    </div>
+  </div>
+  {{ end }}
+</section>
+
+<section class="section-wrap collections-section" aria-labelledby="collections-heading">
+  <div class="section-heading">
+    <p class="eyebrow">FOUR WAYS TO EXPLORE</p>
+    <h2 id="collections-heading">The Library</h2>
+    <p>Begin wherever your curiosity leads.</p>
+  </div>
+  <div class="feature-grid">
+    <a class="feature-card" href="{{ "library/on-aspirion/" | relURL }}">
+      <span class="feature-number">I · PHILOSOPHY</span>
+      <h3>On Aspirion</h3>
+      <p>Principles, practices, questions, and the developing philosophy of Aspirion.</p>
+      <span class="card-link">Browse this collection &rarr;</span>
+    </a>
+    <a class="feature-card" href="{{ "library/in-critique/" | relURL }}">
+      <span class="feature-number">II · CRITICISM</span>
+      <h3>In Critique</h3>
+      <p>Critical essays examining doctrines, institutions, and inherited ideas.</p>
+      <span class="card-link">Browse this collection &rarr;</span>
+    </a>
+    <a class="feature-card" href="{{ "library/in-the-world/" | relURL }}">
+      <span class="feature-number">III · PUBLIC LIFE</span>
+      <h3>Aspirion in the World</h3>
+      <p>Social, ethical, and political positions informed by Aspirionist principles.</p>
+      <span class="card-link">Browse this collection &rarr;</span>
+    </a>
+    <a class="feature-card" href="{{ "library/poetry-and-prose/" | relURL }}">
+      <span class="feature-number">IV · LITERATURE</span>
+      <h3>Poetry &amp; Prose</h3>
+      <p>Poems, songs, literary reflections, and other creative writings.</p>
+      <span class="card-link">Browse this collection &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<section class="recent-updates-section" aria-labelledby="recent-heading">
+  <div class="section-wrap recent-inner">
+    <div class="section-heading">
+      <p class="eyebrow">WHAT'S NEW AROUND HERE</p>
+      <h2 id="recent-heading">Recently Updated</h2>
+      <p>The five most recently updated writings and pages across the website.</p>
+    </div>
+    {{ $recent := first 5 (site.RegularPages.ByLastmod.Reverse) }}
+    {{ if gt (len $recent) 0 }}
+    <ol class="recent-list">
+      {{ range $recent }}
+      <li class="recent-item">
+        <div class="recent-item-main">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ with .CurrentSection }}{{ .Title }}{{ else }}Aspirion{{ end }}{{ with .Params.kind }} · {{ . }}{{ end }}</p>
+        </div>
+        {{ if not .Lastmod.IsZero }}
+        <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ol>
+    {{ else }}
+    <p class="empty-note">The first updates will appear here as you publish.</p>
+    {{ end }}
+  </div>
+</section>
+
+{{ with .Content }}
+<section class="home-note section-wrap">
+  <div class="prose">{{ . }}</div>
+</section>
+{{ end }}
+{{ end }}
