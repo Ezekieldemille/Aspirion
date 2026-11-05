@@ -190,3 +190,93 @@ img, svg { max-width: 100%; height: auto; }
   .featured-section { padding-top: 3.3rem; }
   .recent-item { align-items: flex-start; flex-direction: column; gap: .3rem; }
 }
+
+
+/* ASPIRION CLICKABLE ARTICLE CARDS */
+
+a.list-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1rem;
+  background: var(--parchment-light);
+  border: 1px solid var(--tan);
+  border-radius: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(64,44,25,.04);
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+}
+
+a.list-entry:hover {
+  transform: translateY(-3px);
+  border-color: var(--burgundy);
+  box-shadow: 0 10px 28px rgba(64,44,25,.12);
+}
+
+a.list-entry h2 {
+  color: var(--walnut);
+  margin: 0 0 .5rem;
+}
+
+a.list-entry:hover h2 {
+  color: var(--burgundy);
+}
+
+a.list-entry p {
+  color: var(--muted);
+  margin: 0;
+}
+
+a.list-entry .entry-arrow {
+  color: var(--burgundy);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+a.list-entry:focus-visible {
+  outline: 3px solid var(--burgundy);
+  outline-offset: 3px;
+}
+
+
+/* CLICKABLE RECENT UPDATES */
+
+.recent-item {
+  padding: 0;
+  display: block;
+}
+
+.recent-item-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  padding: 1.15rem .75rem;
+  color: var(--walnut);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background .2s ease;
+}
+
+.recent-item-link:hover {
+  background: var(--parchment);
+}
+
+.recent-item-link:hover h3 {
+  color: var(--burgundy);
+}
+
+@media (max-width: 630px) {
+  .recent-item-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
+  }
+}

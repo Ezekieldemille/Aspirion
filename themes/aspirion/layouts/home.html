@@ -295,6 +295,7 @@
 </section>
 
 
+
 <!-- RECENT UPDATES -->
 <section class="recent-updates-section" aria-labelledby="recent-heading">
   <div class="section-wrap recent-inner">
@@ -310,32 +311,34 @@
     <ol class="recent-list">
       {{ range $recent }}
       <li class="recent-item">
-        <div class="recent-item-main">
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <p>
-            {{ with .CurrentSection }}
-              {{ .Title }}
-            {{ else }}
-              Aspirion
-            {{ end }}
-            {{ with .Params.kind }}
-              &middot; {{ . }}
-            {{ end }}
-          </p>
-        </div>
+        <a class="recent-item-link" href="{{ .RelPermalink }}">
+          <div class="recent-item-main">
+            <h3>{{ .Title }}</h3>
+            <p>
+              {{ with .CurrentSection }}
+                {{ .Title }}
+              {{ else }}
+                Aspirion
+              {{ end }}
+              {{ with .Params.kind }}
+                &middot; {{ . }}
+              {{ end }}
+            </p>
+          </div>
 
-        {{ if not .Lastmod.IsZero }}
-        <time datetime="{{ .Lastmod.Format "2006-01-02" }}">
-          {{ .Lastmod.Format "Jan 2, 2006" }}
-        </time>
-        {{ end }}
+          {{ if not .Lastmod.IsZero }}
+          <time datetime="{{ .Lastmod.Format "2006-01-02" }}">
+            {{ .Lastmod.Format "Jan 2, 2006" }}
+          </time>
+          {{ end }}
+        </a>
       </li>
       {{ end }}
     </ol>
     {{ else }}
-      <p class="empty-note">
-        The first updates will appear here as you publish.
-      </p>
+    <p class="empty-note">
+      The first updates will appear here as you publish.
+    </p>
     {{ end }}
   </div>
 </section>

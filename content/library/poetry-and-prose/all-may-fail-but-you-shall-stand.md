@@ -1,6 +1,8 @@
-# All may fail, but you shall stand
-
-
++++
+title = "All may fail, but you shall stand"
+draft = false
+slug = "all-may-fail-but-you-shall-stand"
++++
 
 You will never see truth. It is beyond you, it is beyond me, it is beyond anyone we call Human. Truth is a strange mistress, who stands behind a veil, ever beckoning, whose form we can see in how she presses herself into the sheets of our instruments and models, but whose face you will never know. Mysteries will die in the eyes of those who saw them only once. History will forget beautiful secrets, and already we have forgotten the faces of men and women who knew truths we will never know, and who perhaps held points of data that unlocked doors now closed to us forever. You will lose to Entropy. Heat death will come, and all systems, natural and biological, will flatline into equilibrium. Everything you have worked for will falter, fall, fail, and rot. Most tragic of all, you will never become who you could have been. Mistakes will add up. Stumbling blocks set before you by others will slow your progress. Your trajectory will need constant readjustment upwards, until you run out of fuel. You will die having failed to run your race as hard as you could have.
 
@@ -15,4 +17,3 @@ Others may weep for what will come. Others may look at the math and conclude the
 
 
 Stand, little Aspirite. And know this; Though you may stand to fall, you will never stand alone.
-

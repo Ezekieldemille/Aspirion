@@ -1,34 +1,60 @@
+
 {{ define "main" }}
 <section class="page-shell listing-page">
-  <div class="breadcrumbs"><a href="{{ "/" | relURL }}">Home</a> <span aria-hidden="true">/</span> {{ .Title }}</div>
+  <div class="breadcrumbs">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span aria-hidden="true">/</span> {{ .Title }}
+  </div>
+
   <header class="article-heading">
     <p class="eyebrow">EXPLORE ASPIRION</p>
     <h1>{{ .Title }}</h1>
-    {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+    {{ with .Description }}
+      <p class="article-description">{{ . }}</p>
+    {{ end }}
   </header>
-  {{ with .Content }}<div class="prose section-intro">{{ . }}</div>{{ end }}
+
+  {{ with .Content }}
+    <div class="prose section-intro">{{ . }}</div>
+  {{ end }}
+
   {{ with .Sections }}
   <div class="section-grid">
     {{ range . }}
-      <a class="section-card" href="{{ .RelPermalink }}"><h2>{{ .Title }}</h2>{{ with .Description }}<p>{{ . }}</p>{{ end }}<span>Explore &rarr;</span></a>
+    <a class="section-card" href="{{ .RelPermalink }}">
+      <h2>{{ .Title }}</h2>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      <span>Explore &rarr;</span>
+    </a>
     {{ end }}
   </div>
   {{ end }}
+
   {{ $pages := .RegularPagesRecursive }}
   {{ with $pages }}
   <div class="section-list">
     <p class="eyebrow">READ AND EXPLORE</p>
+
     {{ range .ByWeight }}
-      <article class="list-entry">
-        <div>
-          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          {{ with .Description }}<p>{{ . }}</p>{{ else }}{{ with .Summary }}<p>{{ . | plainify | truncate 180 }}</p>{{ end }}{{ end }}
-        </div>
-        <a class="entry-arrow" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">&rarr;</a>
-      </article>
+    <a class="list-entry" href="{{ .RelPermalink }}">
+      <div>
+        <h2>{{ .Title }}</h2>
+        {{ with .Description }}
+          <p>{{ . }}</p>
+        {{ else }}
+          {{ with .Summary }}
+            <p>{{ . | plainify | truncate 180 }}</p>
+          {{ end }}
+        {{ end }}
+      </div>
+      <span class="entry-arrow" aria-hidden="true">&rarr;</span>
+    </a>
     {{ end }}
   </div>
   {{ end }}
-  {{ if and (not .Content) (eq (len .Sections) 0) (eq (len $pages) 0) }}<p class="empty-note">This shelf is ready for its first writings.</p>{{ end }}
+
+  {{ if and (not .Content) (eq (len .Sections) 0) (eq (len $pages) 0) }}
+    <p class="empty-note">This shelf is ready for its first writings.</p>
+  {{ end }}
 </section>
 {{ end }}
