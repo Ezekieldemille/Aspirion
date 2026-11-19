@@ -1,0 +1,12 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "css/begin-here.css" | relURL }}">
+<section class="page-shell begin-here-page" aria-labelledby="bh-page-title">
+  <div class="breadcrumbs"><a href="{{ "/" | relURL }}">Home</a> <span aria-hidden="true">/</span> Begin Here</div>
+  <header class="article-heading bh-page-heading">
+    <p class="eyebrow">A PLACE TO BEGIN</p>
+    <h1 id="bh-page-title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="bh-content">{{ . }}</div>{{ end }}
+</section>
+{{ end }}
